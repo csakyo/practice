@@ -7,29 +7,35 @@
     <title>Static Template</title>
   </head>
   <body>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"
-    />
+   <p>0</p>
+   <div id="box">
+     <div>スクロールしてください</div>
+   </div> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script>
-      $(function () {
-        $(".bxslider").bxSlider({
-          auto: true,
-          // slideWidth: 640,
-          minSlides: 3
-        });
-      });
+     $(document).ready(function(){
+       $('#box').scroll(function(){
+         $("p").text($(this).scrollTop());
+       });
+     })
     </script>
-    <ul class="bxslider">
-      <li><img src="image.jpeg" /></li>
-      <li><img src="image2.jpeg" /></li>
-    </ul>
-    <div class="aka">
-      <span>aaaaaaa</span>
-    </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="main.js"></script>
+    <style>
+      #box div{
+        height: 500px;
+      }
+
+
+      
+      #box{
+        border: solid 1px black;
+        height: 100px;
+    /* width: 500px; */
+        overflow: scroll;
+      }
+
+    </style>
   </body>
 </html>
