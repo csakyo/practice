@@ -7,32 +7,67 @@
     <title>Static Template</title>
   </head>
   <body>
-   <p>0</p>
-   <div id="box">
-     <p>スクロールしてください</p>
-   </div> 
+   <div id="button">
+     <a id="b" href="#">button</a>
+   </div>
+   <p id="text">色を変える</p>
+
+   <!-- JavaScript-->
+   <!-- <p><a class="link" href="https://naruhodo.repop.jp/javascript-scroll-event/" target="_blank">JavaScript Scroll ivent</a></p>
+    <div id="container"></div>
+    <div id="log">scrollTop:0</div> -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script>
-      $(document).ready(function(){
-        $("#box").scroll(function(){
-          $("p").text($(this).scrollTop());
-        });
-      })
+      // $(document).ready(function(){
+      //   $("#box").scroll(function(){
+      //     $("p").text($(this).scrollTop());
+      //   });
+      // })
+     var a = document.getElementById("button");
+     var b = document.getElementById("b");
+     a.addEventListener('click',function(){
+     b.style.background='pink';
+     });
+
+
     </script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="main.js"></script>
     <style>
-      #box p{
-        height: 500px;
+      #button a{
+      text-align: center;
+    width: 100px;
+    height: 50px;
+    background: red;
+    display: block;
+    cursor: pointer;
       }
 
-      #box{
-        border: solid 1px black;
-        height: 100px;
-    /* width: 500px; */
-        overflow: scroll;
+      #text{
+color: blue;
       }
+
+      /* .link{
+padding:5px;
+text-decoration:none;
+}
+
+#container{
+  height:1200px;
+}
+
+#log{
+  width:130px;
+  background:#01579B;
+  position: fixed;
+  top:60px;
+  left:10px;
+  color:#FFF;
+  padding:10px;
+  
+} */
 
     </style>
   </body>
