@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title>Practice</title>
+  </head>
+  <body>
+    <div>
+        <ul id="target"></ul>
+    </div>
+  </body>
+  <script>
+      const array = [
+      {to: "bookmark.html", img: "1.png", alt:"画像1", text: "ブックマーク"}, 
+      {to: "message.html", img: "2.png", alt:"画像2", text: "メッセージ"}
+      ]
+      const to = array[0].to;
+      const img_src = array[0].img;
+      const alt = array[0].alt;
+      const txt = array[0].text;
+      
+      const ul = document.getElementById('target');
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = to;
+      const img = document.createElement('img');
+      img.src = img_src;
+      img.alt = alt;
+      console.log(img);
+      a.innerHTML = txt;
+      ul.appendChild(li).appendChild(a).appendChild(img);
+
+  </script>
+</html>

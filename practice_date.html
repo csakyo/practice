@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title>Practice</title>
+  </head>
+  <body>
+    <div>
+    </div>
+  </body>
+  <script>
+      //今日の日付データを変数hidukeに格納
+        var hiduke=new Date(); 
+        // console.log(hiduke);
+
+        //年・月・日・曜日を取得する
+        var year = hiduke.getFullYear();
+        var month = hiduke.getMonth()+1;
+        var week = hiduke.getDay();
+        var day = hiduke.getDate();
+
+        var yobi= ["日","月","火","水","木","金","土"];
+
+        document.write("西暦"+year+"年"+month+"月"+day+"日 "+yobi[week]+"曜日");
+  </script>
+</html>
