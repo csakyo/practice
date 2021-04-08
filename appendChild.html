@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title>Practice</title>
+  </head>
+  <body>
+    <div id="form_area">
+        <input type="text" id="inputform_0" placeholder="フォーム">
+    </div>
+    <input type="button" value="フォーム追加" onclick="addForm()">
+  </body>
+  <script>
+    // function addForm() {
+    // const form = document.createElement('input');
+    // const form_area = document.getElementById('form_area');
+    // form_area.appendChild('form');
+    // i++;
+    //   }
+
+
+
+    // var i = 1 ;
+  function addForm() {
+  var input_data = document.createElement('input');
+//   input_data.type = 'text';
+//   input_data.id = 'inputform_' + i;
+//   input_data.placeholder = 'フォーム-' + i;
+  var parent = document.getElementById('form_area');
+  parent.appendChild(input_data);
+//   i++ ;
+}
+
+  </script>
+</html>
