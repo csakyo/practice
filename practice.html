@@ -17,11 +17,12 @@
       {to: "bookmark.html", img: "1.png", alt:"画像1", text: "ブックマーク"}, 
       {to: "message.html", img: "2.png", alt:"画像2", text: "メッセージ"}
       ]
-      const to = array[0].to;
-      const img_src = array[0].img;
-      const alt = array[0].alt;
-      const txt = array[0].text;
-      
+      const length = array.length;
+    for (let i = 0; i < length; i++){
+      const to = array[i].to;
+      const img_src = array[i].iマージ
+      const alt = array[i].alt;
+      const txt = array[i].text;
       const ul = document.getElementById('target');
       const li = document.createElement('li');
       const a = document.createElement('a');
@@ -29,9 +30,9 @@
       const img = document.createElement('img');
       img.src = img_src;
       img.alt = alt;
-      console.log(img);
       a.innerHTML = txt;
       ul.appendChild(li).appendChild(a).appendChild(img);
+    }
 
   </script>
 </html>
