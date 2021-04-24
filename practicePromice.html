@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og:https://ogp.me/ns#">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <title>practice</title>
+</head>
+<body>
+    <div>
+        <ul id="target"></ul>
+    </div>
+</body>
+<script>
+const array = [{to: "bookmark.html", img: "1.png", alt:"画像1", text: "ブックマーク"}, 
+               {to: "message.html", img: "2.png", alt:"画像2", text: "メッセージ"}]
+
+const promise = new Promise((resolve) => {
+  // 引数に文字列を渡す
+  resolve(array);
+}).then((val) => {
+  // 第一引数にて、resolve関数で渡した文字列を受け取ることができる
+      const length = array.length;
+      const ul = document.getElementById('target');
+      const fragment = document.createDocumentFragment();
+
+      for (let i = 0; i < length; i++){
+        const {to, img, alt, text} = array[i];
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = to;
+        a.innerHTML = text;
+        const img_tag = document.createElement('img');
+        img_tag.src = img;
+        img_tag.alt = alt;
+        fragment.appendChild(li).appendChild(a).appendChild(img_tag);
+      }
+        ul.appendChild(fragment);
+});
+</script>
+</body>
+<style>
+    body,
+      div,
+      dl,
+      dt,
+      dd,
+      ul,
+      ol,
+      li,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      pre,
+      code,
+      form,
+      fieldset,
+      legend,
+      input,
+      textarea,
+      p,
+      blockquote,
+      th,
+      td {
+        margin: 0;
+        padding: 0;
+      }
+
+
+</style>
+</html>
