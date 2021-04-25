@@ -13,31 +13,60 @@
     </div>
 </body>
 <script>
-const array = [{to: "bookmark.html", img: "1.png", alt:"画像1", text: "ブックマーク"}, 
-               {to: "message.html", img: "2.png", alt:"画像2", text: "メッセージ"}]
+// const array = [{to: "bookmark.html", img: "1.png", alt:"画像1", text: "ブックマーク"}, 
+//                {to: "message.html", img: "2.png", alt:"画像2", text: "メッセージ"}]
 
-const promise = new Promise((resolve) => {
-  // 引数に文字列を渡す
-  resolve(array);
-}).then((val) => {
-  // 第一引数にて、resolve関数で渡した文字列を受け取ることができる
-      const length = array.length;
-      const ul = document.getElementById('target');
-      const fragment = document.createDocumentFragment();
+// const promise = new Promise((resolve) => {
+//   // 引数に文字列を渡す
+//   resolve(array);
+// }).then((val) => {
+//   // 第一引数にて、resolve関数で渡した文字列を受け取ることができる
+//       const length = array.length;
+//       const ul = document.getElementById('target');
+//       const fragment = document.createDocumentFragment();
 
-      for (let i = 0; i < length; i++){
-        const {to, img, alt, text} = array[i];
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = to;
-        a.innerHTML = text;
-        const img_tag = document.createElement('img');
-        img_tag.src = img;
-        img_tag.alt = alt;
-        fragment.appendChild(li).appendChild(a).appendChild(img_tag);
-      }
-        ul.appendChild(fragment);
+//       for (let i = 0; i < length; i++){
+//         const {to, img, alt, text} = array[i];
+//         const li = document.createElement('li');
+//         const a = document.createElement('a');
+//         a.href = to;
+//         a.innerHTML = text;
+//         const img_tag = document.createElement('img');
+//         img_tag.src = img;
+//         img_tag.alt = alt;
+//         fragment.appendChild(li).appendChild(a).appendChild(img_tag);
+//       }
+//         ul.appendChild(fragment);
+// });
+var trapCard = function() {
+  console.log('トラップカード発動!');
+};
+var sacrificeCard = function(sacrificeName) {
+  console.log(sacrificeName + 'を生け贄にするぜ!!');
+};
+// オレのターン！と表示してから、引数を実行する関数
+var myTurn = function(callback) {
+  console.log('オレのターン!');
+  callback();
+};
+
+/* 呼び出し */
+myTurn(trapCard);
+// オレのターン!
+// トラップカード発動!
+
+/* --- コールバック関数自体に引数を渡すには以下のように書くことも --- */
+/* function()を噛ませる */
+myTurn(function() {
+  sacrificeCard('ブルーアイズホワイトドラゴン');
 });
+
+/* .bind()を使用する */
+myTurn(sacrificeCard.bind(null, 'ブルーアイズホワイトドラゴン'));  // 引数を束縛するだけなら第1引数はnullでok
+
+// （上記どちらも）
+// オレのターン!
+// ブルーアイズホワイトドラゴンを生け贄にするぜ!!
 
 
 </script>
