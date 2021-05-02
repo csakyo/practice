@@ -13,27 +13,20 @@
     </div>
   </body>
   <script>
-      const array = [
-      {to: "bookmark.html", img: "1.png", alt:"画像1", text: "ブックマーク"}, 
-      {to: "message.html", img: "2.png", alt:"画像2", text: "メッセージ"},
-      {to: "message.html", img: "2.png", alt:"画像2", text: "メッセージ"}
-      ]
-      const length = array.length;
-      const ul = document.getElementById('target');
-      const fragment = document.createDocumentFragment();
+ // 自分で定義する関数
+function add(a, b) {
+  return a + b;
+}
 
-      for (let i = 0; i < length; i++){
-        const {to, img, alt, text} = array[i];
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = to;
-        a.innerHTML = text;
-        const img_tag = document.createElement('img');
-        img_tag.src = img;
-        img_tag.alt = alt;
-        fragment.appendChild(li).appendChild(a).appendChild(img_tag);
-      }
-        ul.appendChild(fragment);
+// 定義した関数を変数に入れる
+const addFunc = add; // カッコはつけない！
+
+// JavaScriptに標準でついてる関数でもできる
+const myMax = Math.max; // max関数をmyMaxという変数に入れる
+
+// 呼び出してみる
+console.log(add(1, 2), addFunc(1, 2)); // どっちも3になる
+console.log(Math.max(1, 2), myMax(1, 2)); // どっちも2
 
   </script>
 </html>
