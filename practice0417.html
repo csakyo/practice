@@ -8,15 +8,14 @@
   <title>practice</title>
 </head>
 <body>
-    <a onclick="clickStop();">Stop!</a>
+  <p>PRACTICE</p>
 </body>
 <script>
-const fn = function(){
-    console.log("a");
+const fruit = ["orange", "apple", "peach"];
+export function filterOrange(arr){
+  return arr.filter((e) => e === "orange")
 }
-const tm = 1000;
-
-setTimeout(fn, tm);
+filterOrange(fruit);
 </script>
 </body>
 <style>
