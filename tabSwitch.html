@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og:https://ogp.me/ns#">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <title>practice</title>
+</head>
+<body>
+  <div class="tab-panel">
+    <!--タブ-->
+    <ul class="tab-group">
+      <li class="tab tab-A is-active">Tab-A</li>
+      <li class="tab tab-B">Tab-B</li>
+      <li class="tab tab-C">Tab-C</li>  
+   </ul>
+    
+    <!--タブを切り替えて表示するコンテンツ-->
+    <div class="panel-group">
+      <div class="panel tab-A is-show">
+        <ul>
+          <li>AAA</li>
+          <li>BBB</li>
+          <li>CCC</li>
+        </ul>
+      </div>
+      <div class="panel tab-B">
+        <ul>
+          <li>SSS</li>
+          <li>FFF</li>
+          <li>GGG</li>
+        </ul>
+      </div>
+      <div class="panel tab-C">
+        <ul>
+          <li>XXXX</li>
+          <li>LLL</li>
+          <li>ZZZ</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  // タブに対してクリックイベントを適用
+  const tabs = document.getElementsByClassName('tab');
+  console.log(tabs);
+  for(let i = 0; i < tabs.length; i++) {
+    tabs[i].addEventListener('click', tabSwitch, false);
+  }
+
+  // タブをクリックすると実行する関数
+  function tabSwitch(){
+    // タブのclassの値を変更
+    document.getElementsByClassName('is-active')[0].classList.remove('is-active');
+    this.classList.add('is-active');
+    // コンテンツのclassの値を変更
+    document.getElementsByClassName('is-show')[0].classList.remove('is-show');
+    const arrayTabs = Array.prototype.slice.call(tabs);
+    const index = arrayTabs.indexOf(this);
+    document.getElementsByClassName('panel')[index].classList.add('is-show');
+  };
+}, false);
+
+
+</script>
+<style>
+.tab-group{
+  display: flex;
+  justify-content: center;
+}
+.tab{
+  flex-grow: 1;
+  padding:5px;
+  list-style:none;
+  border:solid 1px #CCC;
+  text-align:center;
+  cursor:pointer;
+}
+.panel-group{
+  height:100px;
+  border:solid 1px #CCC;
+  border-top:none;
+  background:#eee;
+}
+.panel{
+  display:none;
+}
+.tab.is-active{
+  background:#F00;
+  color:#FFF;
+  transition: all 0.2s ease-out;
+}
+.panel.is-show{
+  display:block;
+}
+</style>
+</html>
